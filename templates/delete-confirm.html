@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>O'chirishni tasdiqlash</title>
+</head>
+<body>
+        <p>"{{ recipe.nomi }}" retseptini o'chirishni xohlaysizmi?</p>
+        
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Ha, o'chirish</button>
+            <a href="{% url 'home' %}" >Bekor qilish</a>
+        </form>
+</body>
+</html>

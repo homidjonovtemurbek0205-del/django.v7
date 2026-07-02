@@ -1,0 +1,148 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 30px;
+    color: #333;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+form[method="GET"] {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    max-width: 400px;
+}
+
+form[method="GET"] input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+form[method="GET"] input:focus {
+    border-color: #3498db;
+}
+
+form[method="GET"] button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+form[method="GET"] button:hover {
+    background-color: #2980b9;
+}
+
+.add-book-btn {
+    margin-bottom: 30px;
+}
+
+.add-book-btn a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #2ecc71;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(46, 204, 113, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-book-btn a:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+.books {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.book-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-left: 5px solid #3498db;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-card p {
+    margin: 8px 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.book-card p strong {
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.actions button {
+    flex: 1;
+    border: none;
+    border-radius: 6px;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.actions button a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.edit-btn button a, .edit-btn a {
+    background-color: #f1c40f;
+    color: #2c3e50 !important;
+}
+
+.edit-btn:hover a {
+    background-color: #f39c12;
+}
+
+.delete-btn button a, .delete-btn a {
+    background-color: #e74c3c;
+}
+
+.delete-btn:hover a {
+    background-color: #c0392b;
+}

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retseptlar Bosh Sahifasi</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <h2>Jami retseptlar: {{ total_recipes }} ta</h2>
+
+    <form method="GET" action="" class="search-form">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search">
+        <button type="submit">Qidirish</button>
+    </form>
+
+    <p class="add-book-btn">
+        <a href="{% url 'create-recipe' %}">Yangi Retsept Qo'shish</a>
+    </p>
+    
+    <div class="books">
+        {% for recipe in recipes %}
+            <div class="book-card">
+                <p class="recipe-title"><strong>{{ recipe.nomi }}</strong> - {{ recipe.muallif }}</p>
+                <p class="recipe-desc">Tavsifi: {{ recipe.tavsifi }}</p>
+                <p>Tayyorlash vaqti: {{ recipe.tayyorlash_vaqti }} daqiqa</p>
+                <p>Yaratilgan sana: {{ recipe.yaratilgan_sana|date:"Y-m-d H:i" }}</p>
+                
+                {% if recipe.tayyorlash_vaqti < 30 %}
+                    <p class="fast-cook">⚡ Tez tayyor bo'ladi</p>
+                {% endif %}
+                
+                <div class="actions">
+                    <button class="edit-btn">
+                        <a href="{% url 'edit-recipe' recipe.id %}">Edit</a>
+                    </button>
+                    <button class="delete-btn">
+                        <a href="{% url 'delete-recipe' recipe.id %}">Delete</a>
+                    </button>
+                </div>
+            </div>
+        {% empty %}
+            <p class="no-result">Hech qanday retsept topilmadi.</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

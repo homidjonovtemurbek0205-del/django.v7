@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yangi retsept qo'shish</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+        <h2>Yangi retsept qo'shish</h2>
+        <hr>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <button type="submit">Saqlash</button>
+            <a href="{% url 'home' %}">Orqaga qaytish</a>
+        </form>
+</body>
+</html>
